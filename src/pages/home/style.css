@@ -1,0 +1,24 @@
+.item {
+  object-fit: cover !important;
+  height: 35vh !important;
+}
+
+.item img {
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.icon {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.content {
+  border-radius: 20px;
+  padding: 5px 15px;
+  margin-left: 10px;
+  width: 100% !important;
+  text-align: center;
+  font-size: 14px !important;
+}
