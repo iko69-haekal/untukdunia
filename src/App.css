@@ -1,0 +1,10 @@
+@import "~antd/dist/antd.css";
+* {
+  transition: 0.5s !important;
+}
+
+.hover:hover {
+  transform: scale(1.15) !important;
+  transition: 0.5s;
+  cursor: pointer;
+}

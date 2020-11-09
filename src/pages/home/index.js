@@ -19,6 +19,7 @@ const Home = () => {
               src="https://bedabisa.com/media/service/gas-smoke-vs3f7d96ddgbrtcfg99c.png"
               alt="produk 1"
               desc="WHAT IS"
+              heights="350px"
             />
           </div>
           <div className="col-md-4">
@@ -26,6 +27,7 @@ const Home = () => {
               src="https://bedabisa.com/media/service/gas-smoke-vs3f7d96ddgbrtcfg99c.png"
               alt="produk 1"
               desc="WHAT IS"
+              heights="350px"
             />
           </div>
           <div className="col-md-4">
@@ -33,6 +35,7 @@ const Home = () => {
               src="https://bedabisa.com/media/service/gas-smoke-vs3f7d96ddgbrtcfg99c.png"
               alt="produk 1"
               desc="WHAT IS"
+              heights="350px"
             />
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { logo } from "../../asset/image";
 import "./style.css";
 const Navbar = () => {
   return (
@@ -10,7 +11,13 @@ const Navbar = () => {
       >
         <div className="container">
           <NavLink className="navbar-brand" to="/">
-            Navbar
+            <img
+              src={logo}
+              width="150"
+              height="53"
+              class="d-inline-block align-top"
+              alt="untuk dunia logo"
+            />
           </NavLink>
           <button
             className="navbar-toggler"
@@ -40,18 +47,23 @@ const Navbar = () => {
               >
                 Tentang kami
               </NavLink>
-              <a className="nav-item nav-link" href="#">
-                Artikel
-              </a>
-              <a className="nav-item nav-link" href="#">
+              <NavLink
+                activeClassName="active"
+                className="nav-item nav-link"
+                to="/artikel"
+              >
+                artikel
+              </NavLink>
+              <NavLink
+                className="nav-item nav-link"
+                activeClassName="active"
+                to="/produk"
+              >
                 Produk
-              </a>
-              <a className="nav-item nav-link" href="#">
+              </NavLink>
+              <NavLink className="nav-item nav-link" to="galery">
                 Galery
-              </a>
-              <a className="nav-item nav-link" href="#">
-                Contact
-              </a>
+              </NavLink>
             </div>
           </div>
         </div>

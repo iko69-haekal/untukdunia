@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import "jquery/src/jquery";
 import { hydrate, render } from "react-dom";
 
 const rootElement = document.getElementById("root");

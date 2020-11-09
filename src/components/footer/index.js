@@ -1,14 +1,19 @@
 import React from "react";
+import { tokopedia, bukalapak, shopee, logo } from "../../asset/image";
 
 const Footer = () => {
   return (
     <>
-      <div className="pt-3" style={{ width: "100%", backgroundColor: "black" }}>
-        <div className="container">
+      <div
+        className="pt-3"
+        style={{ width: "100%", backgroundColor: "black", bottom: 0 }}
+      >
+        <div className="container pt-3">
           <div className="row justify-content-center">
             <div className="col-md-4 mb-2">
-              <h1>LOGO</h1>
-
+              <img src={logo} alt="footer logo" width="150" />
+              <br />
+              <br />
               <p className="text-white">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt
                 consequuntur praesentium tempore libero necessitatibus eos
@@ -16,8 +21,8 @@ const Footer = () => {
                 sed, est odio eius in ipsa consequatur quod!
               </p>
             </div>
-            <div className="col-md-4 mb-2 pl-5">
-              <h3>Contact us</h3>
+            <div className="col-md-4 mb-4">
+              <h3 className="text-white">Contact us</h3>
 
               <h6 className="text-white">
                 <span>
@@ -108,7 +113,47 @@ const Footer = () => {
             </div>
 
             <div className="col-md-4 mb-2">
-              <h3>Market place</h3>
+              <h3 className="text-white">Market place</h3>
+              <div className="row mt-4">
+                <div className="col-md-2">
+                  <div>
+                    <a className="d-inline" href="https://tokopedia.com">
+                      <img
+                        style={{ width: "46px" }}
+                        src={tokopedia}
+                        className="hover"
+                        alt="tokopedia untukdunia"
+                      />
+                    </a>
+                  </div>
+                </div>
+                {/*  */}
+                <div className="col-md-2">
+                  <div>
+                    <a className="d-inline" href="https://shopee.com">
+                      <img
+                        style={{ width: "46px" }}
+                        src={shopee}
+                        className="hover"
+                        alt="shopee untukdunia"
+                      />
+                    </a>
+                  </div>
+                </div>
+                {/*  */}
+                <div className="col-md-1">
+                  <div>
+                    <a className="d-inline" href="https://bukalapak.com">
+                      <img
+                        style={{ width: "46px" }}
+                        src={bukalapak}
+                        className="hover"
+                        alt="bukalapak untukdunia"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ const Contact = () => {
     <>
       <div className="container my-5 pt-3">
         <div className="row justify-content-center">
-          <div className="col-lg-3 col-md-6 mb-2">
+          <div className="col-lg-3 col-md-6 mb-2 hover">
             <img className="icon" src={facebook} alt="kontak kami" />{" "}
             <span
               className="content text-white"
@@ -15,7 +15,7 @@ const Contact = () => {
             </span>
           </div>
           {/*  */}
-          <div className="col-lg-3 col-md-6 mb-2">
+          <div className="col-lg-3 col-md-6 mb-2 hover">
             <img className="icon" src={whatsapp} alt="kontak kami" />{" "}
             <span
               className="content text-white"
@@ -25,7 +25,7 @@ const Contact = () => {
             </span>
           </div>
           {/*  */}
-          <div className="col-lg-3 col-md-6 mb-2">
+          <div className="col-lg-3 col-md-6 mb-2 hover">
             <img className="icon" src={instagram} alt="kontak kami" />{" "}
             <span
               className="content text-white"
@@ -35,7 +35,7 @@ const Contact = () => {
             </span>
           </div>
           {/*  */}
-          <div className="col-lg-3 col-md-6 mb-2">
+          <div className="col-lg-3 col-md-6 mb-2 hover">
             <img className="icon" src={gmail} alt="kontak kami" />{" "}
             <span
               className="content text-white"

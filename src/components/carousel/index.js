@@ -6,7 +6,7 @@ const Carousel = () => {
       id="carouselExampleIndicators"
       className="carousel slide"
       data-ride="carousel"
-      data-interval="1500"
+      data-interval="2500"
     >
       <ol className="carousel-indicators">
         <li
@@ -23,14 +23,14 @@ const Carousel = () => {
             className="d-block w-100"
             src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjM3Njd9"
             alt="First slide"
-            style={{ height: "90vh" }}
+            style={{ maxHeight: "85vh" }}
           />
         </div>
         <div className="carousel-item">
           <img
             className="d-block w-100"
             alt="Second slide"
-            style={{ height: "90vh" }}
+            style={{ maxHeight: "85vh" }}
             src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjM3Njd9"
           />
         </div>
@@ -38,7 +38,7 @@ const Carousel = () => {
           <img
             className="d-block w-100"
             alt="Third slide"
-            style={{ height: "90vh" }}
+            style={{ maxHeight: "85vh" }}
             src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjM3Njd9"
           />
         </div>
