@@ -10,7 +10,7 @@ const Admin = (props) => {
 
   const logout = () => {
     localStorage.clear();
-    history.replace("/");
+    history.replace("/login");
   };
   return (
     <>
