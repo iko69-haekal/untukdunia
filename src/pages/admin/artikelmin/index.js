@@ -1,57 +1,88 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import { Skeleton } from "antd";
+import Axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+import { message, Popconfirm } from "antd";
 import Admin from "../../../components/admin";
 import Card from "../../../components/cards";
 const Artikelmin = () => {
+  const history = useHistory();
+  const [artikel, setArtikel] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    getData();
+  }, []);
+
+  const getData = () => {
+    Axios.get("http://api.untukdunia.com/article")
+      .then((res) => {
+        const data = res.data.data;
+        setArtikel(data);
+      })
+      .catch((e) => console.log(e))
+      .finally((e) => setLoading(false));
+  };
+
+  function hapus(id) {
+    Axios.delete(`http://api.untukdunia.com/article/${id}`, {
+      headers: {
+        api_token: localStorage.getItem("token"),
+      },
+    })
+      .then((res) => {
+        message.success("data berhasil dihapus");
+        getData();
+      })
+      .catch((err) => console.log(err));
+  }
   return (
     <>
       <Admin>
-        <div className="row">
-          <div className="col-md-6 col-12 mb-5">
-            <Card
-              src="https://bedabisa.com/media/service/i-guest-c67cyrwfhfz7q7xnswww.png"
-              alt="artikel 1"
-              heights="250px"
-              vit="cover"
-              desc="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum ipsa
-              dolores, dolorum consectetur, ab ipsum eius veritatis iusto sequi
-              sit enim."
-            />
-            <button className="btn btn-danger mr-4">hapus</button>
-            <NavLink to="/admin/artikel" className="btn btn-info text-white">
-              ubah
-            </NavLink>
-          </div>
-          <div className="col-md-6 col-12 mb-5">
-            <Card
-              src="https://bedabisa.com/media/service/i-guest-c67cyrwfhfz7q7xnswww.png"
-              alt="artikel 1"
-              heights="250px"
-              vit="cover"
-              desc="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum ipsa
-              dolores, dolorum consectetur, ab ipsum eius veritatis iusto sequi
-              sit enim."
-            />
-            <button className="btn btn-danger mr-4">hapus</button>
-            <NavLink to="/admin/artikel" className="btn btn-info text-white">
-              ubah
-            </NavLink>
-          </div>
-          <div className="col-md-6 col-12 mb-5">
-            <Card
-              src="https://bedabisa.com/media/service/i-guest-c67cyrwfhfz7q7xnswww.png"
-              alt="artikel 1"
-              heights="250px"
-              vit="cover"
-              desc="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum ipsa
-              dolores, dolorum consectetur, ab ipsum eius veritatis iusto sequi
-              sit enim."
-            />
-            <button className="btn btn-danger mr-4">hapus</button>
-            <NavLink to="/admin/artikel" className="btn btn-info text-white">
-              ubah
-            </NavLink>
-          </div>
+        <div className="row pt-3 pb-5">
+          <Skeleton loading={loading} active={true} />
+          {!artikel ? (
+            <p></p>
+          ) : (
+            artikel.map((data) => {
+              return (
+                <div className="col-md-6 col-12 mb-5">
+                  <a
+                    onClick={(e) => {
+                      e.preventDefault();
+                      history.push("/artikel/" + data.id);
+                    }}
+                  >
+                    <Card
+                      src={data.image}
+                      alt={data.article_title}
+                      title={data.article_title}
+                      heights="250px"
+                      desc={data.article_sub_content}
+                    />
+                  </a>
+                  <Popconfirm
+                    title="yakin ingin menghapus?"
+                    onConfirm={() => hapus(data.id)}
+                    okText="Yes"
+                    cancelText="No"
+                  >
+                    <button className="btn btn-danger mr-2">hapus</button>
+                  </Popconfirm>
+
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      history.push("/admin/artikel/ubah/" + data.id);
+                    }}
+                    className="btn btn-primary"
+                  >
+                    ubah
+                  </button>
+                </div>
+              );
+            })
+          )}
         </div>
       </Admin>
     </>

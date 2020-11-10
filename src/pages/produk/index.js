@@ -24,7 +24,7 @@ const Produk = () => {
         <h3 className="mb-4">Produk kami</h3>
         <div className="row">
           <Skeleton loading={loading} active={true} />
-          {loading ? (
+          {!produk ? (
             <p></p>
           ) : (
             produk.map((data, i) => {

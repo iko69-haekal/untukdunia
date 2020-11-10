@@ -17,28 +17,28 @@ const Carousel = () => {
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
-      <div className="carousel-inner">
+      <div className="carousel-inner" style={{ maxHeight: "85vh" }}>
         <div className="carousel-item active">
           <img
             className="d-block w-100"
+            style={{ width: "100%", height: "100%" }}
             src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjM3Njd9"
             alt="First slide"
-            style={{ maxHeight: "85vh" }}
           />
         </div>
         <div className="carousel-item">
           <img
             className="d-block w-100"
             alt="Second slide"
-            style={{ maxHeight: "85vh" }}
+            style={{ width: "100%", height: "100%" }}
             src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjM3Njd9"
           />
         </div>
         <div className="carousel-item">
           <img
             className="d-block w-100"
+            style={{ width: "100%", height: "100%" }}
             alt="Third slide"
-            style={{ maxHeight: "85vh" }}
             src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjM3Njd9"
           />
         </div>

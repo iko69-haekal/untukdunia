@@ -29,7 +29,7 @@ function Artikel() {
         <div className="row mt-4">
           <Skeleton loading={loading} active={true} />
 
-          {loading ? (
+          {!artikel ? (
             <p></p>
           ) : (
             artikel.map((data) => {

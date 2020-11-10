@@ -25,7 +25,7 @@ const Galery = () => {
         <div className="row">
           <Skeleton loading={loading} active={true} />
 
-          {loading ? (
+          {!galery ? (
             <p></p>
           ) : (
             galery.map((data) => {

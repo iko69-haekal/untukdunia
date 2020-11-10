@@ -1,13 +1,15 @@
 import Axios from "axios";
 import React, { useState } from "react";
-import { message } from "antd";
+import { message, Button } from "antd";
 import { useHistory } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
   const login = () => {
+    setLoading(true);
     Axios.post("https://api.untukdunia.com/login", {
       email: email,
       password: password,
@@ -21,7 +23,8 @@ const Login = () => {
       })
       .catch((err) => {
         message.error("pastikan email dan password benar");
-      });
+      })
+      .finally((e) => setLoading(false));
   };
 
   if (localStorage.getItem("token")) {
@@ -59,9 +62,10 @@ const Login = () => {
                     }}
                   />
                 </div>
-                <button onClick={login} className="btn btn-primary w-100">
-                  login
-                </button>
+
+                <Button onClick={login} type="primary" block loading={loading}>
+                  Login
+                </Button>
               </div>
             </div>
           </div>

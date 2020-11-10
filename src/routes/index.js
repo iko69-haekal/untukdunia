@@ -4,6 +4,7 @@ import About from "../pages/about";
 import Artikelmin from "../pages/admin/artikelmin";
 import Dashboard from "../pages/admin/dashboard";
 import Tambah from "../pages/admin/tambah";
+import Ubah from "../pages/admin/ubah";
 import Artikel from "../pages/artikel";
 import Detail from "../pages/artikel/detail";
 import Galery from "../pages/galery";
@@ -25,6 +26,7 @@ const Routes = () => {
         <Route exact path="/admin" component={Dashboard} />
         <Route exact path="/admin/artikel" component={Artikelmin} />
         <Route path="/admin/artikel/tambah" component={Tambah} />
+        <Route path="/admin/artikel/ubah/:id" component={Ubah} />
       </Switch>
     </Router>
   );
