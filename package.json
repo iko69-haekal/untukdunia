@@ -16,6 +16,7 @@
     "global": "^4.4.0",
     "jodit-react": "^1.0.66",
     "jquery": "^3.5.1",
+    "netlify-cli": "^2.68.3",
     "popper.js": "^1.16.1",
     "react": "^17.0.1",
     "react-cool-img": "^1.2.5",
@@ -30,11 +31,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "postbuild": "react-snap",
     "eject": "react-scripts eject"
-  },
-  "reactSnap": {
-    "fixWebpackChunksIssue": false
   },
   "eslintConfig": {
     "extends": [
