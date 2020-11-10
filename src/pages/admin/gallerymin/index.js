@@ -1,31 +1,30 @@
-import { Skeleton } from "antd";
+import { Skeleton, Popconfirm, message } from "antd";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { message, Popconfirm } from "antd";
 import Admin from "../../../components/admin";
-import Card from "../../../components/cards";
-const Artikelmin = () => {
+
+const Galery = () => {
   const history = useHistory();
-  const [artikel, setArtikel] = useState([]);
+  const [galery, setGalery] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
     getData();
   }, []);
 
-  const getData = () => {
-    Axios.get("http://api.untukdunia.com/article")
+  function getData() {
+    Axios.get("http://api.untukdunia.com/gallery")
       .then((res) => {
         const data = res.data.data;
-        setArtikel(data);
+        setGalery(data);
       })
       .catch((e) => console.log(e))
       .finally((e) => setLoading(false));
-  };
+  }
 
   function hapus(id) {
-    Axios.delete(`http://api.untukdunia.com/article/${id}`, {
+    Axios.delete(`http://api.untukdunia.com/gallery/${id}`, {
       headers: {
         api_token: localStorage.getItem("token"),
       },
@@ -39,31 +38,26 @@ const Artikelmin = () => {
   return (
     <>
       <Admin>
-        <div className="row pt-3 pb-5">
+        <div className="row">
           <Skeleton loading={loading} active={true} />
-          {!artikel ? (
+
+          {!galery ? (
             <p></p>
           ) : (
-            artikel.map((data) => {
+            galery.map((data) => {
               return (
-                <div className="col-md-6 col-12 mb-5">
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      history.push("/artikel/" + data.id);
-                    }}
-                  >
-                    <Card
-                      src={data.image}
-                      alt={data.article_title}
-                      title={data.article_title}
-                      vit={"cover"}
-                      heights="200px"
-                    />
-                  </a>
+                <div className="col-lg-4 col-md-6">
+                  <img
+                    style={{ width: "100%", height: "35vh" }}
+                    src={data.image}
+                    alt={data.image_title}
+                    className="mb-3 img-fluid"
+                  />
                   <Popconfirm
                     title="yakin ingin menghapus?"
-                    onConfirm={() => hapus(data.id)}
+                    onConfirm={() => {
+                      hapus(data.id);
+                    }}
                     okText="Yes"
                     cancelText="No"
                   >
@@ -73,7 +67,7 @@ const Artikelmin = () => {
                   <button
                     onClick={(e) => {
                       e.preventDefault();
-                      history.push("/admin/artikel/ubah/" + data.id);
+                      history.push("/admin/galery/ubah/" + data.id);
                     }}
                     className="btn btn-primary"
                   >
@@ -89,4 +83,4 @@ const Artikelmin = () => {
   );
 };
 
-export default Artikelmin;
+export default Galery;

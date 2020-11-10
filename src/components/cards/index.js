@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./style.css";
 const Card = ({
   src,
   alt,
@@ -10,16 +10,22 @@ const Card = ({
   ...rest
 }) => {
   return (
-    <div class="card mb-3" {...rest}>
+    <div className="card mb-3" {...rest}>
       <img
-        style={{ width: "100%", height: heights, objectFit: vit }}
-        class="card-img-top img-thumbnail"
+        style={{
+          height: heights,
+          objectFit: vit,
+          border: "none",
+        }}
+        className="card-img-top"
         src={src}
         alt={alt}
       />
-      <div class="card-body">
-        <h5 className="card-title">{title}</h5>
-        <p class="card-text">{desc}</p>
+      <div className="card-body">
+        <h5 style={{ fontSize: "16pt" }} className="card-title">
+          {title}
+        </h5>
+        <p className="card-text">{desc}</p>
       </div>
     </div>
   );

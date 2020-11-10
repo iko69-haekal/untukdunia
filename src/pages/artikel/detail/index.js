@@ -46,8 +46,11 @@ const Detail = () => {
               />
             </div>
             <br />
+            <br />
             <h1>{artikel.article_title}</h1>
-            <p>{artikel.article_content}</p>
+            <p
+              dangerouslySetInnerHTML={{ __html: artikel.article_content }}
+            ></p>
           </div>
         </div>
       </div>

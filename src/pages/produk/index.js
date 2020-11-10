@@ -21,7 +21,6 @@ const Produk = () => {
     <>
       <Navbar />
       <div className="container my-4">
-        <h3 className="mb-4">Produk kami</h3>
         <div className="row">
           <Skeleton loading={loading} active={true} />
           {!produk ? (
@@ -35,6 +34,7 @@ const Produk = () => {
                     src={data.image}
                     alt={data.image_title}
                     title={data.image_title}
+                    heights={"200px"}
                     vit="cover"
                   />
                 </div>

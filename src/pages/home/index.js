@@ -37,6 +37,14 @@ const Home = () => {
       })
       .catch((e) => console.log(e));
   }, []);
+
+  if (produk.length > 3) {
+    setProduct(produk.slice(0, 3));
+  }
+
+  if (galery.length > 4) {
+    setProduct(produk.slice(0, 4));
+  }
   return (
     <>
       <Navbar />
@@ -56,7 +64,7 @@ const Home = () => {
                     src={data.image}
                     alt={data.image_title}
                     title={data.image_title}
-                    vit="cover"
+                    heights="200px"
                   />
                 </div>
               );
@@ -67,7 +75,7 @@ const Home = () => {
       {/*  */}
       <div className="my-4">
         <h3 className="text-center">Galery</h3>
-        <div className="row no-gutters mt-4 justify-content-center">
+        <div className="row mt-4 justify-content-center">
           <Skeleton loading={loading} active={true} />
           {!galery ? (
             <p></p>
@@ -75,11 +83,12 @@ const Home = () => {
             galery.map((data, i) => {
               return (
                 <div className="col-lg-3 col-md-4 col-6">
-                  <div className="item" key={i}>
+                  <div className="item">
                     <img
                       src={data.image}
                       alt={data.image_title}
                       className="img-fluid"
+                      key={i}
                     />
                   </div>
                 </div>

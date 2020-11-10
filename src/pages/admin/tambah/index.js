@@ -54,8 +54,9 @@ const Tambah = () => {
             />
           </div>
           <div class="form-group">
-            <label>deskripsi singkat</label>
+            <label>subcontent</label>
             <textarea
+              maxLength={25}
               type="text"
               className="form-control"
               value={sub}

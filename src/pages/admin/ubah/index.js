@@ -69,9 +69,9 @@ const Ubah = () => {
             />
           </div>
           <div className="form-group">
-            <label>deskripsi singkat</label>
+            <label>subcontent</label>
             <textarea
-              type="text"
+              maxLength={25}
               className="form-control"
               value={sub}
               onChange={(e) => {

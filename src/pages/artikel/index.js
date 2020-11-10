@@ -25,8 +25,7 @@ function Artikel() {
     <>
       <Navbar />
       <div className="container mt-4">
-        <h1>Artikel</h1>
-        <div className="row mt-4">
+        <div className="row my-4">
           <Skeleton loading={loading} active={true} />
 
           {!artikel ? (
@@ -45,9 +44,8 @@ function Artikel() {
                       src={data.image}
                       alt={data.article_title}
                       title={data.article_title}
-                      heights="250px"
                       vit="cover"
-                      desc={data.article_sub_content}
+                      heights="200px"
                     />
                   </a>
                 </div>
@@ -56,7 +54,6 @@ function Artikel() {
           )}
         </div>
       </div>
-      <Contact />
       <Footer />
     </>
   );

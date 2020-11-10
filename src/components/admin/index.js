@@ -20,6 +20,7 @@ const Admin = (props) => {
           href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
         />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/4.1.3/js/sb-admin-2.min.js"></script>
       </Helmet>
       <div id="wrapper">
@@ -78,6 +79,36 @@ const Admin = (props) => {
                 </NavLink>
                 <NavLink className="collapse-item" to="/admin/artikel/tambah">
                   Tambah Artikel
+                </NavLink>
+                <NavLink
+                  exact
+                  activeClassName="active"
+                  className="collapse-item"
+                  to="/admin/produk"
+                >
+                  Product
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="collapse-item"
+                  to="/admin/produk/tambah"
+                >
+                  Tambah product
+                </NavLink>
+                <NavLink
+                  exact
+                  activeClassName="active"
+                  className="collapse-item"
+                  to="/admin/galery/"
+                >
+                  Galery
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="collapse-item"
+                  to="/admin/galery/tambah"
+                >
+                  Tambah galery
                 </NavLink>
               </div>
             </div>

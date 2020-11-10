@@ -15,7 +15,7 @@ const Navbar = () => {
               src={logo}
               width="150"
               height="53"
-              class="d-inline-block align-top"
+              className="d-inline-block align-top"
               alt="untuk dunia logo"
             />
           </NavLink>

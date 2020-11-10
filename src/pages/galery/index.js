@@ -9,7 +9,7 @@ const Galery = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    Axios.get("http://api.untukdunia.com/article")
+    Axios.get("http://api.untukdunia.com/gallery")
       .then((res) => {
         const data = res.data.data;
         setGalery(data);
@@ -20,8 +20,7 @@ const Galery = () => {
   return (
     <>
       <Navbar />
-      <div className="container mt-4 mb-5 pb-5">
-        <h2 className="mb-4">Galery</h2>
+      <div className="container pt-5 mt-4 mb-5 pb-5">
         <div className="row">
           <Skeleton loading={loading} active={true} />
 
@@ -32,7 +31,8 @@ const Galery = () => {
               return (
                 <div className="col-lg-4 col-md-6">
                   <img
-                    style={{ width: "100%" }}
+                    className="img-fluid"
+                    style={{ width: "100%", height: "25vh" }}
                     src={data.image}
                     alt={data.image_title}
                   />
