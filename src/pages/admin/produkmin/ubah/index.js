@@ -5,18 +5,19 @@ import { useHistory, useParams } from "react-router-dom";
 import Admin from "../../../../components/admin";
 
 const UbahProduk = () => {
+  const { id } = useParams("id");
   useEffect(() => {
     Axios.get("http://api.untukdunia.com/product/" + id).then((res) => {
       const data = res.data.data;
       setTitle(data.image_title);
       setImage(data.image);
     });
-  }, []);
+  }, [id]);
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const history = useHistory();
-  const { id } = useParams("id");
+
   const submit = () => {
     setLoading(true);
     const form = new FormData();

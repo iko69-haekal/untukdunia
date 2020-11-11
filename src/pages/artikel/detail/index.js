@@ -16,7 +16,7 @@ const Detail = () => {
       })
       .catch((e) => console.log(e))
       .finally((e) => setLoading(false));
-  }, []);
+  }, [id]);
   return (
     <>
       <Navbar />

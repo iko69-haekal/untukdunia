@@ -13,7 +13,7 @@ const UbahGalery = () => {
       setImage(data.image);
       setLink(data.article_link);
     });
-  }, []);
+  }, [id]);
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");

@@ -26,7 +26,7 @@ const Ubah = () => {
         console.log(e);
         document.location.href = "/admin/artikel";
       });
-  }, []);
+  }, [id]);
   const submit = () => {
     setLoading(true);
     const form = new FormData();

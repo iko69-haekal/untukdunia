@@ -3,7 +3,6 @@ import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Card from "../../components/cards";
-import Contact from "../../components/contact";
 import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
 
@@ -34,7 +33,7 @@ function Artikel() {
             artikel.map((data) => {
               return (
                 <div className="col-md-6 col-12 ">
-                  <a
+                  <span
                     onClick={(e) => {
                       e.preventDefault();
                       history.push("/artikel/" + data.id);
@@ -47,7 +46,7 @@ function Artikel() {
                       vit="cover"
                       heights="200px"
                     />
-                  </a>
+                  </span>
                 </div>
               );
             })

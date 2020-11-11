@@ -44,10 +44,10 @@ const Artikelmin = () => {
           {!artikel ? (
             <p></p>
           ) : (
-            artikel.map((data) => {
+            artikel.map((data, i) => {
               return (
-                <div className="col-md-6 col-12 mb-5">
-                  <a
+                <div className="col-md-6 col-12 mb-5" key={i}>
+                  <span
                     onClick={(e) => {
                       e.preventDefault();
                       history.push("/artikel/" + data.id);
@@ -60,7 +60,7 @@ const Artikelmin = () => {
                       vit={"cover"}
                       heights="200px"
                     />
-                  </a>
+                  </span>
                   <Popconfirm
                     title="yakin ingin menghapus?"
                     onConfirm={() => hapus(data.id)}

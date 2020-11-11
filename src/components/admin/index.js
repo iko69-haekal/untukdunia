@@ -28,15 +28,12 @@ const Admin = (props) => {
           className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
           id="accordionSidebar"
         >
-          <a
-            className="sidebar-brand d-flex align-items-center justify-content-center"
-            href="#"
-          >
+          <span className="sidebar-brand d-flex align-items-center justify-content-center">
             <div className="sidebar-brand-icon rotate-n-15">
               <i className="fas fa-globe-asia"></i>
             </div>
             <div className="sidebar-brand-text mx-3">untukdunia</div>
-          </a>
+          </span>
           <hr className="sidebar-divider my-0" />
           <li className="nav-item">
             <NavLink className="nav-link" exact to="/admin">
@@ -50,9 +47,8 @@ const Admin = (props) => {
           <div className="sidebar-heading">Interface</div>
 
           <li className="nav-item">
-            <a
+            <span
               className="nav-link collapsed"
-              href="#"
               data-toggle="collapse"
               data-target="#collapseTwo"
               aria-expanded="true"
@@ -60,7 +56,7 @@ const Admin = (props) => {
             >
               <i className="fas fa-fw fa-cog"></i>
               <span>content</span>
-            </a>
+            </span>
             <div
               id="collapseTwo"
               className="collapse"
@@ -115,7 +111,7 @@ const Admin = (props) => {
           </li>
 
           <li className="nav-item">
-            <a
+            <span
               className="nav-link collapsed"
               href="#"
               data-toggle="collapse"
@@ -125,7 +121,7 @@ const Admin = (props) => {
             >
               <i className="fas fa-fw fa-wrench"></i>
               <span>Template</span>
-            </a>
+            </span>
             <div
               id="collapseUtilities"
               className="collapse"
@@ -165,9 +161,8 @@ const Admin = (props) => {
                 <div className="topbar-divider d-none d-sm-block"></div>
 
                 <li className="nav-item dropdown no-arrow">
-                  <a
+                  <span
                     className="nav-link dropdown-toggle"
-                    href="#"
                     id="userDropdown"
                     role="button"
                     data-toggle="dropdown"
@@ -177,20 +172,19 @@ const Admin = (props) => {
                     <span className="mr-2 d-none d-lg-inline text-gray-600 small">
                       {localStorage.getItem("name")}
                     </span>
-                  </a>
+                  </span>
                   <div
                     className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                     aria-labelledby="userDropdown"
                   >
-                    <a
+                    <button
                       className="dropdown-item"
-                      href="#"
                       data-toggle="modal"
                       data-target="#logoutModal"
                     >
                       <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                       Logout
-                    </a>
+                    </button>
                   </div>
                 </li>
               </ul>
@@ -202,7 +196,7 @@ const Admin = (props) => {
           <footer className="sticky-footer bg-white">
             <div className="container my-auto">
               <div className="copyright text-center my-auto">
-                <span>Copyright &copy; Your Website 2020</span>
+                <span>Copyright &copy; untukdunia 2020</span>
               </div>
             </div>
           </footer>

@@ -58,9 +58,8 @@ const Home = () => {
           ) : (
             produk.map((data, i) => {
               return (
-                <div className="col-md-4 col-12 ">
+                <div className="col-md-4 col-12 " key={i}>
                   <Card
-                    key={i}
                     src={data.image}
                     alt={data.image_title}
                     title={data.image_title}
@@ -82,13 +81,12 @@ const Home = () => {
           ) : (
             galery.map((data, i) => {
               return (
-                <div className="col-lg-3 col-md-4 col-6">
+                <div className="col-lg-3 col-md-4 col-6" key={i}>
                   <div className="item">
                     <img
                       src={data.image}
                       alt={data.image_title}
                       className="img-fluid"
-                      key={i}
                     />
                   </div>
                 </div>
