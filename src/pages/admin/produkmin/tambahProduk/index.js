@@ -1,6 +1,7 @@
-import { Button, message } from "antd";
+import { Button, message, Upload } from "antd";
 import Axios from "axios";
 import React, { useState } from "react";
+import { UploadOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import Admin from "../../../../components/admin";
 
@@ -15,7 +16,7 @@ const TambahProduk = () => {
     form.append("image_title", title);
     form.append("image", image);
 
-    Axios.post("http://api.untukdunia.com/product", form, {
+    Axios.post("https://api.untukdunia.com/product", form, {
       headers: {
         "content-type":
           "multipart/form-data; boundary=---011000010111000001101001",
@@ -36,7 +37,7 @@ const TambahProduk = () => {
       <Admin>
         <div className="row justify-content-center mt-5 pt-5">
           <div className="col-md-6">
-            <div class="form-group">
+            <div className="form-group">
               <label>Nama produk</label>
               <input
                 type="text"
@@ -45,13 +46,17 @@ const TambahProduk = () => {
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Gambar Produk: </label>
               <br />
-              <input
-                type="file"
-                onChange={(e) => setImage(e.target.files[0])}
-              />
+              <Upload
+                beforeUpload={(file) => {
+                  setImage(file);
+                  return false;
+                }}
+              >
+                <Button icon={<UploadOutlined />}>Click to Upload</Button>
+              </Upload>
             </div>
             <Button loading={loading} onClick={submit} type="primary" block>
               Tambah

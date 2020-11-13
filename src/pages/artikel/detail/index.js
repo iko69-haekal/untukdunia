@@ -9,7 +9,7 @@ const Detail = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    Axios.get("http://api.untukdunia.com/article/" + id)
+    Axios.get("https://api.untukdunia.com/article/" + id)
       .then((res) => {
         const data = res.data.data;
         setArtikel(data);

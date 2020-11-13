@@ -8,3 +8,7 @@
   transition: 0.5s;
   cursor: pointer;
 }
+
+.clickable {
+  cursor: pointer !important;
+}

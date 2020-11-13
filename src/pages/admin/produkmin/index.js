@@ -6,14 +6,14 @@ import Admin from "../../../components/admin";
 import { useHistory } from "react-router-dom";
 const Produkmin = () => {
   const history = useHistory();
-  const [produk, setProduct] = useState([]);
+  const [produk, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
     getData();
   }, []);
   function getData() {
-    Axios.get("http://api.untukdunia.com/product")
+    Axios.get("https://api.untukdunia.com/product")
       .then((res) => {
         const data = res.data.data;
         setProduct(data);
@@ -22,7 +22,7 @@ const Produkmin = () => {
       .finally((e) => setLoading(false));
   }
   function hapus(id) {
-    Axios.delete(`http://api.untukdunia.com/product/${id}`, {
+    Axios.delete(`https://api.untukdunia.com/product/${id}`, {
       headers: {
         api_token: localStorage.getItem("token"),
       },

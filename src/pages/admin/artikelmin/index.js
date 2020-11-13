@@ -6,7 +6,7 @@ import Admin from "../../../components/admin";
 import Card from "../../../components/cards";
 const Artikelmin = () => {
   const history = useHistory();
-  const [artikel, setArtikel] = useState([]);
+  const [artikel, setArtikel] = useState(null);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
@@ -14,7 +14,7 @@ const Artikelmin = () => {
   }, []);
 
   const getData = () => {
-    Axios.get("http://api.untukdunia.com/article")
+    Axios.get("https://api.untukdunia.com/article")
       .then((res) => {
         const data = res.data.data;
         setArtikel(data);

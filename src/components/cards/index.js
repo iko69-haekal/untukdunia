@@ -10,7 +10,7 @@ const Card = ({
   ...rest
 }) => {
   return (
-    <div className="card mb-3" {...rest}>
+    <div className="card mb-3 clickable" {...rest}>
       <img
         style={{
           height: heights,

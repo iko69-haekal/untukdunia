@@ -1,8 +1,8 @@
-import { Button, message } from "antd";
+import { Button, message, Upload } from "antd";
 import Axios from "axios";
 import React, { useState } from "react";
 import Admin from "../../../../components/admin";
-
+import { UploadOutlined } from "@ant-design/icons";
 const TambahGalery = () => {
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState("");
@@ -15,7 +15,7 @@ const TambahGalery = () => {
     form.append("image", image);
     form.append("article_link", link);
 
-    Axios.post("http://api.untukdunia.com/gallery", form, {
+    Axios.post("https://api.untukdunia.com/gallery", form, {
       headers: {
         "content-type":
           "multipart/form-data; boundary=---011000010111000001101001",
@@ -59,10 +59,14 @@ const TambahGalery = () => {
             <div class="form-group">
               <label>Gambar Produk: </label>
               <br />
-              <input
-                type="file"
-                onChange={(e) => setImage(e.target.files[0])}
-              />
+              <Upload
+                beforeUpload={(file) => {
+                  setImage(file);
+                  return false;
+                }}
+              >
+                <Button icon={<UploadOutlined />}>Click to Upload</Button>
+              </Upload>
             </div>
             <Button loading={loading} onClick={submit} type="primary" block>
               Tambah

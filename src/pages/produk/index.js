@@ -5,11 +5,11 @@ import { Skeleton, Empty } from "antd";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 const Produk = () => {
-  const [produk, setProduct] = useState([]);
+  const [produk, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    Axios.get("http://api.untukdunia.com/product")
+    Axios.get("https://api.untukdunia.com/product")
       .then((res) => {
         const data = res.data.data;
         setProduct(data);

@@ -8,11 +8,11 @@ import Navbar from "../../components/navbar";
 
 function Artikel() {
   const history = useHistory();
-  const [artikel, setArtikel] = useState([]);
+  const [artikel, setArtikel] = useState(null);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    Axios.get("http://api.untukdunia.com/article")
+    Axios.get("https://api.untukdunia.com/article")
       .then((res) => {
         const data = res.data.data;
         setArtikel(data);
@@ -30,9 +30,9 @@ function Artikel() {
           {!artikel ? (
             <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
           ) : (
-            artikel.map((data) => {
+            artikel.map((data, i) => {
               return (
-                <div className="col-md-6 col-12 ">
+                <div className="col-md-6 col-12 " key={i}>
                   <span
                     onClick={(e) => {
                       e.preventDefault();

@@ -1,4 +1,5 @@
-import { Button, message } from "antd";
+import { Button, message, Upload } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
 import Axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -7,7 +8,7 @@ import Admin from "../../../../components/admin";
 const UbahGalery = () => {
   const { id } = useParams();
   useEffect(() => {
-    Axios.get("http://api.untukdunia.com/gallery/" + id).then((res) => {
+    Axios.get("https://api.untukdunia.com/gallery/" + id).then((res) => {
       const data = res.data.data;
       setTitle(data.image_title);
       setImage(data.image);
@@ -26,7 +27,7 @@ const UbahGalery = () => {
     form.append("old_pict", image);
     form.append("article_link", link);
 
-    Axios.post("http://api.untukdunia.com/gallery/" + id, form, {
+    Axios.post("https://api.untukdunia.com/gallery/" + id, form, {
       headers: {
         "content-type":
           "multipart/form-data; boundary=---011000010111000001101001",
@@ -70,10 +71,14 @@ const UbahGalery = () => {
             <div class="form-group">
               <label>Gambar Produk: </label>
               <br />
-              <input
-                type="file"
-                onChange={(e) => setImage(e.target.files[0])}
-              />
+              <Upload
+                beforeUpload={(file) => {
+                  setImage(file);
+                  return false;
+                }}
+              >
+                <Button icon={<UploadOutlined />}>Click to Upload</Button>
+              </Upload>
             </div>
             <Button loading={loading} onClick={submit} type="primary" block>
               Ubah

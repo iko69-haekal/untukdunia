@@ -4,7 +4,7 @@ import { NavLink, Redirect, useHistory } from "react-router-dom";
 import "../../asset/css/sb-admin-2.min.css";
 const Admin = (props) => {
   const history = useHistory();
-  if (!localStorage.getItem("token")) {
+  if (!localStorage.getItem("token") && !localStorage.getItem("email")) {
     return Redirect("/login");
   }
 

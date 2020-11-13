@@ -14,7 +14,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    Axios.get("http://api.untukdunia.com/product", {
+    Axios.get("https://api.untukdunia.com/product", {
       params: {
         _limit: 3,
       },
@@ -26,7 +26,7 @@ const Home = () => {
       .catch((e) => console.log(e))
       .finally((e) => setLoading(false));
 
-    Axios.get("http://api.untukdunia.com/gallery", {
+    Axios.get("https://api.untukdunia.com/gallery", {
       params: {
         _limit: 8,
       },

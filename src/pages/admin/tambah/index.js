@@ -1,11 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
+import { UploadOutlined } from "@ant-design/icons";
+
 import Admin from "../../../components/admin";
 import JoditEditor from "jodit-react";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
-import { message, Button } from "antd";
+import { message, Button, Upload } from "antd";
 const Tambah = () => {
-  const editor = useRef(null);
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
   const [sub, setSub] = useState("");
@@ -42,9 +43,10 @@ const Tambah = () => {
     <>
       <Admin>
         <div className="container pb-5">
-          <div class="form-group">
+          <div className="form-group">
             <label>title</label>
             <input
+              minLength={5}
               type="text"
               className="form-control"
               value={title}
@@ -53,7 +55,7 @@ const Tambah = () => {
               }}
             />
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label>subcontent</label>
             <textarea
               maxLength={25}
@@ -67,23 +69,24 @@ const Tambah = () => {
           </div>
           <label>deskripsi</label>
           <JoditEditor
-            ref={editor}
             value={content}
             tabIndex={1}
             onChange={(newContent) => setContent(newContent)}
           />
           <br />
-          <div class="form-group">
+          <div className="form-group">
             <label>thumbnail</label>
-            <input
-              onChange={(e) => setThumbnail(e.target.files[0])}
-              type="file"
-              className="form-control-file"
-            />
+            <br />
+            <Upload
+              beforeUpload={(file) => {
+                setThumbnail(file);
+                return false;
+              }}
+            >
+              <Button icon={<UploadOutlined />}>Click to Upload</Button>
+            </Upload>
           </div>
-          {/* <button onClick={submit} className="btn btn-primary mt-3">
-            submit
-          </button> */}
+
           <Button onClick={submit} loading={loading} type="primary" block>
             Tambah
           </Button>

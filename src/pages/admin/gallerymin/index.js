@@ -6,7 +6,7 @@ import Admin from "../../../components/admin";
 
 const Galery = () => {
   const history = useHistory();
-  const [galery, setGalery] = useState([]);
+  const [galery, setGalery] = useState(null);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
@@ -14,7 +14,7 @@ const Galery = () => {
   }, []);
 
   function getData() {
-    Axios.get("http://api.untukdunia.com/gallery")
+    Axios.get("https://api.untukdunia.com/gallery")
       .then((res) => {
         const data = res.data.data;
         setGalery(data);

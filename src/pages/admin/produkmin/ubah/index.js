@@ -1,4 +1,5 @@
-import { Button, message } from "antd";
+import { Button, message, Upload } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
@@ -7,7 +8,7 @@ import Admin from "../../../../components/admin";
 const UbahProduk = () => {
   const { id } = useParams("id");
   useEffect(() => {
-    Axios.get("http://api.untukdunia.com/product/" + id).then((res) => {
+    Axios.get("https://api.untukdunia.com/product/" + id).then((res) => {
       const data = res.data.data;
       setTitle(data.image_title);
       setImage(data.image);
@@ -25,7 +26,7 @@ const UbahProduk = () => {
     form.append("image", image);
     form.append("old_pict", image);
 
-    Axios.post("http://api.untukdunia.com/product/" + id, form, {
+    Axios.post("https://api.untukdunia.com/product/" + id, form, {
       headers: {
         "content-type":
           "multipart/form-data; boundary=---011000010111000001101001",
@@ -46,7 +47,7 @@ const UbahProduk = () => {
       <Admin>
         <div className="row justify-content-center mt-5 pt-5">
           <div className="col-md-6">
-            <div class="form-group">
+            <div className="form-group">
               <label>Nama produk</label>
               <input
                 value={title}
@@ -56,13 +57,17 @@ const UbahProduk = () => {
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Gambar Produk: </label>
               <br />
-              <input
-                type="file"
-                onChange={(e) => setImage(e.target.files[0])}
-              />
+              <Upload
+                beforeUpload={(file) => {
+                  setImage(file);
+                  return false;
+                }}
+              >
+                <Button icon={<UploadOutlined />}>Click to Upload</Button>
+              </Upload>
             </div>
             <Button loading={loading} onClick={submit} type="primary" block>
               Tambah

@@ -1,12 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Admin from "../../../components/admin";
 import JoditEditor from "jodit-react";
 import Axios from "axios";
+import { UploadOutlined } from "@ant-design/icons";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { message, Button } from "antd";
+import { message, Button, Upload } from "antd";
 const Ubah = () => {
-  const editor = useRef(null);
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
   const [sub, setSub] = useState("");
@@ -14,7 +14,7 @@ const Ubah = () => {
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
   useEffect(() => {
-    Axios.get("http://api.untukdunia.com/article/" + id)
+    Axios.get("https://api.untukdunia.com/article/" + id)
       .then((res) => {
         const data = res.data.data;
         setContent(data.article_content);
@@ -37,7 +37,7 @@ const Ubah = () => {
     form.append("category", "education");
     form.append("old_pict", thumbnail);
 
-    Axios.post("http://api.untukdunia.com/article/" + id, form, {
+    Axios.post("https://api.untukdunia.com/article/" + id, form, {
       headers: {
         "content-type":
           "multipart/form-data; boundary=---011000010111000001101001",
@@ -81,20 +81,24 @@ const Ubah = () => {
           </div>
           <label>deskripsi</label>
           <JoditEditor
-            ref={editor}
             value={content}
             tabIndex={1}
             onChange={(newContent) => setContent(newContent)}
           />
           <br />
-          <div class="form-group">
+          <div className="form-group">
             <label>thumbnail</label>
-            <input
-              onChange={(e) => setThumbnail(e.target.files[0])}
-              type="file"
-              className="form-control-file"
-            />
+            <br />
+            <Upload
+              beforeUpload={(file) => {
+                setThumbnail(file);
+                return false;
+              }}
+            >
+              <Button icon={<UploadOutlined />}>Click to Upload</Button>
+            </Upload>
           </div>
+
           <Button onClick={submit} type="primary" block loading={loading}>
             Ubah
           </Button>

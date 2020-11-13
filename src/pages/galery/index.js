@@ -5,11 +5,11 @@ import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
 
 const Galery = () => {
-  const [galery, setGalery] = useState([]);
+  const [galery, setGalery] = useState(null);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    Axios.get("http://api.untukdunia.com/gallery")
+    Axios.get("https://api.untukdunia.com/gallery")
       .then((res) => {
         const data = res.data.data;
         setGalery(data);
