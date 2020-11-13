@@ -1,4 +1,4 @@
-import { Skeleton } from "antd";
+import { Skeleton, Empty } from "antd";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
@@ -28,7 +28,7 @@ function Artikel() {
           <Skeleton loading={loading} active={true} />
 
           {!artikel ? (
-            <p></p>
+            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
           ) : (
             artikel.map((data) => {
               return (

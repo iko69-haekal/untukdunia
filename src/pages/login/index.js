@@ -1,6 +1,7 @@
 import Axios from "axios";
 import React, { useState } from "react";
-import { message, Button } from "antd";
+import { Form, Input, Button, message } from "antd";
+import { LockOutlined, MailOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 
 const Login = () => {
@@ -38,34 +39,56 @@ const Login = () => {
             <div className="card">
               <div className="card-body">
                 <h2 className="text-center font-weight-bold">Login</h2>
-                <div class="form-group">
-                  <label>email</label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="Masukan email"
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                    }}
-                  />
-                </div>
-                <div class="form-group">
-                  <label>password</label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    placeholder="Masukan password"
-                    value={password}
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                    }}
-                  />
-                </div>
+                <br />
+                <Form
+                  name="normal_login"
+                  className="login-form"
+                  onFinish={login}
+                >
+                  <Form.Item
+                    name="email"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your email!",
+                      },
+                    ]}
+                  >
+                    <Input
+                      prefix={<MailOutlined className="site-form-item-icon" />}
+                      placeholder="email"
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </Form.Item>
+                  <Form.Item
+                    name="password"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your Password!",
+                      },
+                    ]}
+                  >
+                    <Input
+                      prefix={<LockOutlined className="site-form-item-icon" />}
+                      type="password"
+                      placeholder="Password"
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </Form.Item>
 
-                <Button onClick={login} type="primary" block loading={loading}>
-                  Login
-                </Button>
+                  <Form.Item>
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      className="login-form-button"
+                      block
+                      loading={loading}
+                    >
+                      Log in
+                    </Button>
+                  </Form.Item>
+                </Form>
               </div>
             </div>
           </div>

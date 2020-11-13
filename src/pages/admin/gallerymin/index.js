@@ -1,4 +1,4 @@
-import { Skeleton, Popconfirm, message } from "antd";
+import { Skeleton, Popconfirm, message, Empty } from "antd";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
@@ -42,7 +42,7 @@ const Galery = () => {
           <Skeleton loading={loading} active={true} />
 
           {!galery ? (
-            <p></p>
+            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
           ) : (
             galery.map((data) => {
               return (

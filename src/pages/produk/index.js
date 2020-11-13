@@ -1,7 +1,7 @@
 import Card from "../../components/cards";
 import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
-import { Skeleton } from "antd";
+import { Skeleton, Empty } from "antd";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 const Produk = () => {
@@ -24,7 +24,7 @@ const Produk = () => {
         <div className="row">
           <Skeleton loading={loading} active={true} />
           {!produk ? (
-            <p></p>
+            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
           ) : (
             produk.map((data, i) => {
               return (

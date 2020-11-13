@@ -1,4 +1,4 @@
-import { Skeleton } from "antd";
+import { Skeleton, Empty } from "antd";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import Footer from "../../components/footer";
@@ -25,7 +25,7 @@ const Galery = () => {
           <Skeleton loading={loading} active={true} />
 
           {!galery ? (
-            <p></p>
+            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
           ) : (
             galery.map((data) => {
               return (

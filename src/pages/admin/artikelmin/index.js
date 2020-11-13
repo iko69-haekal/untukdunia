@@ -1,8 +1,7 @@
-import { Skeleton } from "antd";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { message, Popconfirm } from "antd";
+import { message, Popconfirm, Empty, Skeleton } from "antd";
 import Admin from "../../../components/admin";
 import Card from "../../../components/cards";
 const Artikelmin = () => {
@@ -42,7 +41,7 @@ const Artikelmin = () => {
         <div className="row pt-3 pb-5">
           <Skeleton loading={loading} active={true} />
           {!artikel ? (
-            <p></p>
+            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
           ) : (
             artikel.map((data, i) => {
               return (

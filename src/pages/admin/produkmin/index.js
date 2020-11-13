@@ -1,5 +1,5 @@
 import Card from "../../../components/cards";
-import { Skeleton, Popconfirm, message } from "antd";
+import { Skeleton, Popconfirm, message, Empty } from "antd";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import Admin from "../../../components/admin";
@@ -39,7 +39,7 @@ const Produkmin = () => {
         <div className="row">
           <Skeleton loading={loading} active={true} />
           {!produk ? (
-            <p></p>
+            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
           ) : (
             produk.map((data, i) => {
               return (

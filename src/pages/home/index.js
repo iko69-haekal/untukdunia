@@ -5,7 +5,7 @@ import Carousel from "../../components/carousel";
 import Contact from "../../components/contact";
 import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
-import { Skeleton } from "antd";
+import { Skeleton, Empty } from "antd";
 import Axios from "axios";
 import "./style.css";
 const Home = () => {
@@ -54,7 +54,7 @@ const Home = () => {
         <div className="row mt-5 justify-content-center">
           <Skeleton loading={loading} active={true} />
           {!produk ? (
-            <p></p>
+            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
           ) : (
             produk.map((data, i) => {
               return (
@@ -74,10 +74,10 @@ const Home = () => {
       {/*  */}
       <div className="my-4">
         <h3 className="text-center">Galery</h3>
-        <div className="row mt-4 justify-content-center">
+        <div className="row mt-4 no-gutters justify-content-center">
           <Skeleton loading={loading} active={true} />
           {!galery ? (
-            <p></p>
+            <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
           ) : (
             galery.map((data, i) => {
               return (
