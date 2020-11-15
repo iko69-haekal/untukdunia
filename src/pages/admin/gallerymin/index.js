@@ -24,7 +24,7 @@ const Galery = () => {
   }
 
   function hapus(id) {
-    Axios.delete(`http://api.untukdunia.com/gallery/${id}`, {
+    Axios.delete(`https://api.untukdunia.com/gallery/${id}`, {
       headers: {
         api_token: localStorage.getItem("token"),
       },

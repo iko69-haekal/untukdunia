@@ -31,7 +31,7 @@ const Tambah = () => {
     form.append("image", thumbnail);
     form.append("category", "education");
 
-    Axios.post("http://api.untukdunia.com/article", form, {
+    Axios.post("https://api.untukdunia.com/article", form, {
       headers: {
         "content-type":
           "multipart/form-data; boundary=---011000010111000001101001",

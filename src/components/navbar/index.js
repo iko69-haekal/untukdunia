@@ -64,6 +64,13 @@ const Navbar = () => {
               <NavLink className="nav-item nav-link" to="galery">
                 Galery
               </NavLink>
+              <NavLink
+                style={{ display: "none" }}
+                className="nav-item nav-link"
+                to="login"
+              >
+                login
+              </NavLink>
             </div>
           </div>
         </div>
