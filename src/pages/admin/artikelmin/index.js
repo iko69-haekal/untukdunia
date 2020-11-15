@@ -24,7 +24,7 @@ const Artikelmin = () => {
   };
 
   function hapus(id) {
-    Axios.delete(`http://api.untukdunia.com/article/${id}`, {
+    Axios.delete(`https://api.untukdunia.com/article/${id}`, {
       headers: {
         api_token: localStorage.getItem("token"),
       },
