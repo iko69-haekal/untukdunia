@@ -8,6 +8,7 @@ import Navbar from "../../components/navbar";
 import { Skeleton, Empty } from "antd";
 import Axios from "axios";
 import "./style.css";
+import { Helmet } from "react-helmet";
 const Home = () => {
   const [produk, setProduct] = useState([]);
   const [galery, setGalery] = useState([]);
@@ -47,6 +48,20 @@ const Home = () => {
   }
   return (
     <>
+      <Helmet>
+        <title>
+          untuk dunia | website iot kumpulan hasil karya siswa siswi smk
+          wirabuana
+        </title>
+        <meta
+          name="description"
+          content="Regulasi di bidang IoT perlu diperkuat, sementara impor bahan baku perlu dipermudah. Pemain mulai mampu memonetisasi layanan"
+        />
+        <meta
+          name="keywords"
+          content="untukdunia,untuk dunia,iot,iot indonesia,internet of things,robotika,untukdunia.com,smk,SMK,karya smk"
+        />
+      </Helmet>
       <Navbar />
       <Carousel />
       <div className="container-fluid mt-5 mb-5">

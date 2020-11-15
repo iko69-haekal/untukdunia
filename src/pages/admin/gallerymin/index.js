@@ -44,9 +44,9 @@ const Galery = () => {
           {!galery ? (
             <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
           ) : (
-            galery.map((data) => {
+            galery.map((data, i) => {
               return (
-                <div className="col-lg-4 col-md-6">
+                <div className="col-lg-4 col-md-6" key={i}>
                   <img
                     style={{ width: "100%", height: "35vh" }}
                     src={data.image}

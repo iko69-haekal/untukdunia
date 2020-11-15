@@ -15,6 +15,14 @@ const Tambah = () => {
 
   const history = useHistory();
   const submit = () => {
+    if (title.length < 5) {
+      message.error("title too short");
+      return false;
+    }
+    if (sub.length >= 40) {
+      message.error("subcontent max 40 char");
+      return false;
+    }
     setLoading(true);
     const form = new FormData();
     form.append("article_title", title);
@@ -58,7 +66,7 @@ const Tambah = () => {
           <div className="form-group">
             <label>subcontent</label>
             <textarea
-              maxLength={25}
+              maxLength={40}
               type="text"
               className="form-control"
               value={sub}
@@ -79,6 +87,10 @@ const Tambah = () => {
             <br />
             <Upload
               beforeUpload={(file) => {
+                if (file.size > 700000) {
+                  message.error("file terlalu besar");
+                  return false;
+                }
                 setThumbnail(file);
                 return false;
               }}

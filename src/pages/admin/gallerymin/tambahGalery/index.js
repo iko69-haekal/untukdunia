@@ -9,6 +9,11 @@ const TambahGalery = () => {
   const [image, setImage] = useState("");
   const [link, setLink] = useState("");
   const submit = () => {
+    if (title.length < 5) {
+      message.error("title too short");
+      return false;
+    }
+
     setLoading(true);
     const form = new FormData();
     form.append("image_title", title);
@@ -36,7 +41,7 @@ const TambahGalery = () => {
       <Admin>
         <div className="row justify-content-center mt-5 pt-5">
           <div className="col-md-6">
-            <div class="form-group">
+            <div className="form-group">
               <label>Nama gambar</label>
               <input
                 value={title}
@@ -46,7 +51,7 @@ const TambahGalery = () => {
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>link tujuan</label>
               <input
                 value={link}
@@ -56,11 +61,15 @@ const TambahGalery = () => {
                 onChange={(e) => setLink(e.target.value)}
               />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Gambar Produk: </label>
               <br />
               <Upload
                 beforeUpload={(file) => {
+                  if (file.size > 700000) {
+                    message.error("file terlalu besar");
+                    return false;
+                  }
                   setImage(file);
                   return false;
                 }}

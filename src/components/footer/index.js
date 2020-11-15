@@ -8,7 +8,7 @@ const Footer = () => {
       <Layout>
         <Layout.Footer style={{ backgroundColor: "black" }}>
           <div className=" pt-3">
-            <div className="row justify-content-center">
+            <div className="row">
               <div className="col-md-4 mb-2">
                 <img src={logo} alt="footer logo" width="150" />
                 <br />

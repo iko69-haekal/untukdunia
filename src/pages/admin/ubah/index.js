@@ -28,6 +28,14 @@ const Ubah = () => {
       });
   }, [id]);
   const submit = () => {
+    if (title.length < 5) {
+      message.error("title too short");
+      return false;
+    }
+    if (sub.length >= 40) {
+      message.error("subcontent max 40 char");
+      return false;
+    }
     setLoading(true);
     const form = new FormData();
     form.append("article_title", title);
@@ -91,6 +99,10 @@ const Ubah = () => {
             <br />
             <Upload
               beforeUpload={(file) => {
+                if (file.size > 700000) {
+                  message.error("file terlalu besar");
+                  return false;
+                }
                 setThumbnail(file);
                 return false;
               }}

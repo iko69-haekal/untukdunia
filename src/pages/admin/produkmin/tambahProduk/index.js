@@ -11,6 +11,10 @@ const TambahProduk = () => {
   const [image, setImage] = useState("");
   const history = useHistory();
   const submit = () => {
+    if (title.length < 5) {
+      message.error("title too short");
+      return false;
+    }
     setLoading(true);
     const form = new FormData();
     form.append("image_title", title);
@@ -51,6 +55,10 @@ const TambahProduk = () => {
               <br />
               <Upload
                 beforeUpload={(file) => {
+                  if (file.size > 700000) {
+                    message.error("file terlalu besar");
+                    return false;
+                  }
                   setImage(file);
                   return false;
                 }}
